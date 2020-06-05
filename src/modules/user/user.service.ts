@@ -2,6 +2,7 @@ import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserRepository } from './user.repository';
 import { User } from 'src/entities';
+import { BcryptHelper } from 'src/common/helpers';
 
 @Injectable()
 export class UserService {
@@ -26,6 +27,7 @@ export class UserService {
 
   async createUser(user: User) {
     try {
+      user.password = await BcryptHelper.hash(user.password);
       const { password, updatedAt, ...rest } = await this.userRepository.save(
         user,
       );

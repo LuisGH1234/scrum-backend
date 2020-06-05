@@ -16,8 +16,9 @@ export class User extends BaseDomain {
   @Column()
   lastName: string;
 
-  @BeforeInsert()
-  async beforeInsert() {
-    this.password = await BcryptHelper.hash(this.password);
-  }
+  //   @BeforeInsert()
+  //   beforeInsert() {
+  //     this.password = BcryptHelper.hashSync(this.password);
+  //     console.log(this.password);
+  //   }
 }
