@@ -36,4 +36,11 @@ export class UserService {
       throw new BadRequestException(error);
     }
   }
+
+  async getMe(userID: number){
+    const user = await this.userRepository.findOne(userID, {
+      select: ['password'],
+    });
+
+  }
 }
