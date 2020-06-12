@@ -37,10 +37,4 @@ export class UserService {
     }
   }
 
-  async getMe(userID: number){
-    const user = await this.userRepository.findOne(userID, {
-      select: ['password'],
-    });
-
-  }
 }
