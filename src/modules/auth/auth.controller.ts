@@ -5,16 +5,16 @@ import { User } from 'src/entities';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+    constructor(private readonly authService: AuthService) {}
 
-  @Post('login')
-  login(@Body() loginDto: LoginDto) {
-    console.log(loginDto);
-    return this.authService.login(loginDto);
-  }
+    @Post('login')
+    login(@Body() loginDto: LoginDto) {
+        console.log(loginDto);
+        return this.authService.login(loginDto);
+    }
 
-  @Post('signup')
-  signup(@Body() user: User) {
-    return this.authService.register(user);
-  }
+    @Post('signup')
+    signup(@Body() user: User) {
+        return this.authService.register(user);
+    }
 }
