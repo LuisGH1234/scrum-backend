@@ -17,6 +17,9 @@ export class Company extends BaseDomain {
     @Column()
     email: string;
 
+    @Column()
+    rate: number; // estrellas
+
     @OneToMany(
         type => Job,
         job => job.company,

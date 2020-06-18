@@ -21,6 +21,12 @@ export class Carrier extends BaseDomain {
     @Column()
     phone: string;
 
+    // @Column()
+    // fare: number; // tarifa solXkg
+
+    @Column()
+    rate: number; // estrellas
+
     @ManyToOne(
         type => Company,
         company => company.carriers,
