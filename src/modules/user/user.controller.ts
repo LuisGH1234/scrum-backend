@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, UseGuards, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { User } from 'src/entities';
@@ -15,9 +15,15 @@ export class UserController {
         return this.userService.getUsers();
     }
 
-    @Get('getMe')
     @UseGuards(AuthGuard())
+    @Get('getMe')
     getMe(@AuthUser() user: User) {
         return user;
+    }
+
+    @UseGuards(AuthGuard())
+    @Get(':id/paymentmethods')
+    getPaymentMethodsByUser(@Param('id') id: number) {
+        return this.userService.getPaymentMethodsByUser(id);
     }
 }

@@ -2,6 +2,8 @@ import { Database } from '../database';
 import { createConnection, ConnectionOptions } from 'typeorm';
 import { seedCompanies } from './company.seed';
 import { seedCarriers } from './carrier.seed';
+import { seedPaymentMethods } from './paymentMethod.seed';
+import { seedUsers } from './user.seed';
 
 createConnection(Database.MySqlOptions as ConnectionOptions)
     .then(async connection => {
@@ -9,6 +11,8 @@ createConnection(Database.MySqlOptions as ConnectionOptions)
 
         await seedCompanies(connection);
         await seedCarriers(connection);
+        await seedPaymentMethods(connection);
+        await seedUsers(connection);
 
         console.log('- Database seeding done.');
         process.exit(0);

@@ -3,14 +3,14 @@ import { Carrier } from 'src/entities/carrier.entity';
 import { Company } from 'src/entities/company.entity';
 
 export async function seedCarriers(connection: Connection) {
-    console.log('+ Seeding Companies');
+    console.log('+ Seeding Carriers');
 
     await connection.transaction(async manager => {
         const repository = manager.getRepository(Carrier);
         const companies = await repository.find();
         if (companies.length > 0) {
             console.log(
-                '* Carrier seed will not be executed because table is not empty.',
+                '* Carriers seed will not be executed because table is not empty.',
             );
             return;
         }
@@ -46,7 +46,7 @@ export async function seedCarriers(connection: Connection) {
         });
     });
 
-    console.log('- Companies done');
+    console.log('- Carriers done');
 }
 
 async function seedCarrier(

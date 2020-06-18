@@ -17,9 +17,13 @@ export class User extends BaseDomain {
     @Column()
     lastName: string;
 
+    @Column()
+    phone: string;
+
     @OneToMany(
         type => PaymentMethodClient,
         pmc => pmc.user,
+        { cascade: ['insert'] },
     )
     paymentMethodClients: PaymentMethodClient[];
 
