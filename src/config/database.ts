@@ -1,15 +1,15 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-// import { Config } from './config';
+import { Config } from './config';
 
 export class Database {
     static get MySqlOptions(): TypeOrmModuleOptions {
         return {
             type: 'mysql',
-            host: 'localhost', // Config.dbHost,
-            port: 3306, // Config.dbPort,
-            username: 'root', // Config.dbUsername,
-            password: 'root', // Config.dbPassword,
-            database: 'ubermove', // Config.dbName,
+            host: Config.dbHost,
+            port: Config.dbPort,
+            username: Config.dbUsername,
+            password: Config.dbPassword,
+            database: Config.dbName,
             // extra: {
             //     socketPath: Config.dbSocketPath,
             // },
