@@ -1,4 +1,5 @@
 // process.env['NODE_ENV']
+console.log(process.env['DB_HOST'] );
 export const Config = {
     enviroment: process.env['NODE_ENV'] || 'development',
     dbHost: process.env['DB_HOST'] || 'localhost',
