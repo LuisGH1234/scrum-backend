@@ -7,8 +7,9 @@ export async function seedUsers(connection: Connection) {
 
     await connection.transaction(async manager => {
         const repository = manager.getRepository(User);
-        const companies = await repository.find();
-        if (companies.length > 0) {
+        const users = await repository.find();
+
+        if (users.length > 0) {
             console.log(
                 '* Users seed will not be executed because table is not empty.',
             );
