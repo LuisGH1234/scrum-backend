@@ -45,4 +45,8 @@ export class UserService {
     getPaymentMethodsByUser(userID: number) {
         return this.paymentMethodService.getPaymentMethodsByUser(userID);
     }
+
+    async updateProfile(user: User){
+        return this.userRepository.update(user.id, {firstName: user.firstName, lastName: user.lastName ,phone: user.phone});
+    }
 }

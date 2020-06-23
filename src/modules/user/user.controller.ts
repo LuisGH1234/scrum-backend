@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { User } from 'src/entities';
@@ -25,5 +25,11 @@ export class UserController {
     @Get(':id/paymentmethods')
     getPaymentMethodsByUser(@Param('id') id: number) {
         return this.userService.getPaymentMethodsByUser(id);
+    }
+
+    @UseGuards(AuthGuard())
+    @Post('updateprofile')
+    updateProfile(@Body() user: User) {
+        return this.userService.updateProfile(user);
     }
 }
