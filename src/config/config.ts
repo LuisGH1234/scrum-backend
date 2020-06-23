@@ -7,7 +7,7 @@ export const Config = {
     dbPassword: process.env['DB_PASSWORD'] || 'root',
     dbPort: Number(process.env['DB_PORT'] || 3306),
     dbName: process.env['DB_NAME'] || 'ubermove',
-    port: Number(process.env['PORT'] || 3000),
+    port: Number(process.env['PORT'] || 5000),
     jwtSecretKey: process.env['JWT_SECRET_KEY'] || 'sercret-jwt-key',
     jwtExpiration: process.env['JWT_EXPIRATION'] || '7d',
 };
