@@ -1,1 +1,1 @@
-npm run start:heroku
+npm run start:prod
