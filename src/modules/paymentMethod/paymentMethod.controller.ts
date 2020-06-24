@@ -18,10 +18,4 @@ export class PaymentMethodController {
     getPaymentMethod(@Param('id') pmID: number) {
         return this.paymentMethodService.getPaymentMethod(pmID);
     }
-
-    // @UseGuards(JwtAuthGuard)
-    // @Get(':id/carriers')
-    // getCarriersByCompany(@Param('id') companyID: number) {
-    //     return this.paymentMethodService.getCarriersByCompany(companyID);
-    // }
 }
