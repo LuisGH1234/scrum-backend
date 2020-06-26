@@ -2,7 +2,7 @@ import { Controller, Get, UseGuards, Param } from '@nestjs/common';
 import { PaymentMethodService } from './paymentMethod.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
-@Controller('companies')
+@Controller('paymentMethods')
 export class PaymentMethodController {
     constructor(private readonly paymentMethodService: PaymentMethodService) {}
 
