@@ -32,4 +32,10 @@ export class UserController {
     updateProfile(@Body() user: User) {
         return this.userService.updateProfile(user);
     }
+
+    @UseGuards(AuthGuard())
+    @Get(':id/jobs')
+    getJobsByUser(@Param('id') id: number) {
+        return this.userService.getJobsByUser(id);
+    }
 }

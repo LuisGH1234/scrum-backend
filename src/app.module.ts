@@ -9,6 +9,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { CarrierModule } from './modules/carrier/carrier.module';
 import { CompanyModule } from './modules/company/company.module';
 import { PaymentMethodModule } from './modules/paymentMethod/paymentMethod.module';
+import { JobModule } from './modules/job/job.module';
 
 @Module({
     imports: [
@@ -18,6 +19,7 @@ import { PaymentMethodModule } from './modules/paymentMethod/paymentMethod.modul
         UserModule,
         CarrierModule,
         CompanyModule,
+        JobModule,
     ],
     controllers: [AppController],
     providers: [AppService],

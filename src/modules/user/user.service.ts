@@ -4,11 +4,13 @@ import { UserRepository } from './user.repository';
 import { User } from 'src/entities';
 import { BcryptHelper } from 'src/common/helpers';
 import { PaymentMethodService } from '../paymentMethod/paymentMethod.service';
+import { JobService } from '../job/job.service';
 
 @Injectable()
 export class UserService {
     constructor(
         private readonly paymentMethodService: PaymentMethodService,
+        private readonly jobService: JobService,
         @InjectRepository(UserRepository)
         private readonly userRepository: UserRepository,
     ) {}
@@ -48,5 +50,9 @@ export class UserService {
 
     async updateProfile(user: User){
         return this.userRepository.update(user.id, {firstName: user.firstName, lastName: user.lastName ,phone: user.phone});
+    }
+
+    getJobsByUser(userID: number) {
+        return this.jobService.getJobsByUser(userID);
     }
 }
