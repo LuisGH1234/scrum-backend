@@ -18,7 +18,7 @@ export class Job extends BaseDomain {
     weight: number;
 
     @Column({ type: 'datetime' })
-    date: String;
+    date: String; // fecha de entrega
 
     @Column()
     originAddress: string;
@@ -63,6 +63,7 @@ export class Job extends BaseDomain {
     @OneToMany(
         type => CarrierJob,
         cj => cj.job,
+        { cascade: ['insert'] },
     )
     carrierJobs: CarrierJob[];
 }

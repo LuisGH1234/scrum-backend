@@ -14,7 +14,7 @@ export class JobController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Get()
+    @Get(':id')
     getJob(@Param('id') jobID: number) {
         return this.jobService.getJob(jobID);
     }
