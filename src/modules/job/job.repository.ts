@@ -7,6 +7,7 @@ export class JobRepository extends Repository<Job> {
         return this.createQueryBuilder('j')
             .leftJoin('j.user', 'user')
             .where('user.id = :userID', { userID })
+            .andWhere('j.active = true')
             .getMany();
     }
 }
