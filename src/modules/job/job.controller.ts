@@ -3,7 +3,7 @@ import { JobService } from './job.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Job } from 'src/entities';
 
-@Controller('job')
+@Controller('jobs')
 export class JobController {
     constructor(private readonly jobService: JobService) {}
 
@@ -22,9 +22,6 @@ export class JobController {
     @UseGuards(JwtAuthGuard)
     @Post()
     createJob(@Body() job: Job) {
-        const jobCreated = this.jobService.createJob(job);
-        return {
-            jobCreated,
-        };
+        return this.jobService.createJob(job);
     }
 }

@@ -11,6 +11,7 @@ import { Payment } from './payment.entity';
 import { Company } from './company.entity';
 import { User } from './user.entity';
 import { CarrierJob } from './carrier_job.entity';
+import { PaymentMethodClient } from './payment_method_client.entity';
 
 @Entity()
 export class Job extends BaseDomain {
@@ -26,24 +27,25 @@ export class Job extends BaseDomain {
     @Column()
     destinyAddress: string;
 
-    @Column({ type: 'decimal' })
+    @Column({ type: 'decimal', precision: 10, scale: 8 })
     originLatitude: number;
 
-    @Column({ type: 'decimal' })
+    @Column({ type: 'decimal', precision: 11, scale: 8 })
     originLongitude: number;
 
-    @Column({ type: 'decimal' })
+    @Column({ type: 'decimal', precision: 10, scale: 8 })
     destinyLatitude: number;
 
-    @Column({ type: 'decimal' })
+    @Column({ type: 'decimal', precision: 11, scale: 8 })
     destinyLongitude: number;
 
     @Column({ type: 'int' })
-    status: number;
+    status: number; // 0 creado - 1 - aceptado - 2 - terminado
 
     @OneToOne(
         type => Payment,
         payment => payment.job,
+        { cascade: ['insert'] },
     )
     @JoinColumn()
     payment: Payment;
@@ -66,4 +68,6 @@ export class Job extends BaseDomain {
         { cascade: ['insert'] },
     )
     carrierJobs: CarrierJob[];
+
+    paymentMethodClient: PaymentMethodClient;
 }

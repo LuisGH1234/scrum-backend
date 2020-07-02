@@ -10,6 +10,7 @@ export class Database {
             username: Config.dbUsername,
             password: Config.dbPassword,
             database: Config.dbName,
+            bigNumberStrings: false,
             // extra: {
             //     socketPath: Config.dbSocketPath,
             // },

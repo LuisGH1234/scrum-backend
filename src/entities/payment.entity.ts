@@ -5,10 +5,10 @@ import { Job } from './job.entity';
 
 @Entity()
 export class Payment extends BaseDomain {
-    @Column()
+    @Column({ nullable: true })
     quantity: number;
 
-    @Column({ type: 'float' })
+    @Column({ type: 'float', nullable: true })
     currency: number;
 
     @ManyToOne(
