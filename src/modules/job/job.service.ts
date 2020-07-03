@@ -14,7 +14,10 @@ export class JobService {
     ) {}
 
     async getJobs() {
-        const data = await this.jobRepository.find({ where: { active: true } });
+        const data = await this.jobRepository.find({
+            where: { active: true },
+            relations: ['payment', 'company'],
+        });
         return { data };
     }
 
@@ -50,6 +53,8 @@ export class JobService {
             { carrier: { id: carriers[randomIndex].id } },
         ] as CarrierJob[];
         job.payment = {
+            quantity: job.totalPrice,
+            currency: 1,
             paymentMethodClient: job.paymentMethodClient,
         } as Payment;
         const newJob = await this.jobRepository.save(job);

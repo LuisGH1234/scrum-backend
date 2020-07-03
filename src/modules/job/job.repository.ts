@@ -6,6 +6,8 @@ export class JobRepository extends Repository<Job> {
     getJobsByUser(userID: number) {
         return this.createQueryBuilder('j')
             .leftJoin('j.user', 'user')
+            .leftJoinAndSelect('j.payment', 'payment')
+            .leftJoinAndSelect('j.company', 'company')
             .where('user.id = :userID', { userID })
             .andWhere('j.active = true')
             .getMany();

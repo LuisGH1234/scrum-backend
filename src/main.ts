@@ -1,4 +1,3 @@
-// import * as dotenv from 'dotenv';
 require('dotenv').config();
 import * as morgan from 'morgan';
 import { NestFactory } from '@nestjs/core';

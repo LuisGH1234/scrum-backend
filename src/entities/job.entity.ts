@@ -69,5 +69,6 @@ export class Job extends BaseDomain {
     )
     carrierJobs: CarrierJob[];
 
+    totalPrice: number;
     paymentMethodClient: PaymentMethodClient;
 }
